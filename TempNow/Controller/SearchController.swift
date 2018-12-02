@@ -18,6 +18,7 @@ class SearchController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+
         addBackGroundImage()
         addButtons()
         addTextField()
@@ -48,7 +49,7 @@ class SearchController: UIViewController {
     @objc private func controllerSwitchPressed(){
         self.dismiss(animated: true) {
             if(self.input.text! != ""){
-                print(self.input.text!)
+                UserInput.sharedInstance = self.input.text!
             }else{
                 print("empty input")
             }

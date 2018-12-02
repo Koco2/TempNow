@@ -14,6 +14,7 @@
 		6667498821AFCE96005340AC /* WeatherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6667498721AFCE96005340AC /* WeatherModel.swift */; };
 		6667499021B229F5005340AC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6667498F21B229F5005340AC /* ViewController.swift */; };
 		6667499221B22A0B005340AC /* SearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6667499121B22A0B005340AC /* SearchController.swift */; };
+		6667499421B3BE19005340AC /* UserInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6667499321B3BE19005340AC /* UserInput.swift */; };
 		BAC8C42719D1AFB0DC659F0C /* Pods_TempNow.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8EFEB698EECDC9197D891D35 /* Pods_TempNow.framework */; };
 /* End PBXBuildFile section */
 
@@ -27,6 +28,7 @@
 		6667498721AFCE96005340AC /* WeatherModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherModel.swift; sourceTree = "<group>"; };
 		6667498F21B229F5005340AC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		6667499121B22A0B005340AC /* SearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchController.swift; sourceTree = "<group>"; };
+		6667499321B3BE19005340AC /* UserInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInput.swift; sourceTree = "<group>"; };
 		8EFEB698EECDC9197D891D35 /* Pods_TempNow.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TempNow.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A64C6CC7623E257977A4087A /* Pods-TempNow.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TempNow.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TempNow/Pods-TempNow.debug.xcconfig"; sourceTree = "<group>"; };
 		BEF1C805879F7FC312013639 /* Pods-TempNow.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TempNow.release.xcconfig"; path = "Pods/Target Support Files/Pods-TempNow/Pods-TempNow.release.xcconfig"; sourceTree = "<group>"; };
@@ -88,6 +90,7 @@
 			isa = PBXGroup;
 			children = (
 				6667498721AFCE96005340AC /* WeatherModel.swift */,
+				6667499321B3BE19005340AC /* UserInput.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -228,6 +231,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6667499421B3BE19005340AC /* UserInput.swift in Sources */,
 				6667499021B229F5005340AC /* ViewController.swift in Sources */,
 				6667498821AFCE96005340AC /* WeatherModel.swift in Sources */,
 				6667497621AFC79A005340AC /* AppDelegate.swift in Sources */,
@@ -381,6 +385,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3434CZ5U2F;
 				INFOPLIST_FILE = TempNow/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -400,6 +405,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3434CZ5U2F;
 				INFOPLIST_FILE = TempNow/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
