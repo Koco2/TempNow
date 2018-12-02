@@ -11,7 +11,8 @@ import Foundation
 class WeatherModel {
     
     //Declare your model variables here
-    var temperature : Int = 0
+    var CTemp : Int = 0
+    var FTemp : Int = 0
     var condition : Int = 0
     var city : String = ""
     var weatherIconName : String = ""

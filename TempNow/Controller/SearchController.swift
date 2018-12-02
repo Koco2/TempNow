@@ -47,12 +47,13 @@ class SearchController: UIViewController {
     }
     
     @objc private func controllerSwitchPressed(){
+        if(self.input.text! != ""){
+            UserInput.sharedInstance = self.input.text!
+        }else{
+            print("empty input")
+        }
         self.dismiss(animated: true) {
-            if(self.input.text! != ""){
-                UserInput.sharedInstance = self.input.text!
-            }else{
-                print("empty input")
-            }
+            print("dissmissed")
         }
     }
     

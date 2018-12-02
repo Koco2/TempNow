@@ -19,7 +19,7 @@ class ViewController: UIViewController,  CLLocationManagerDelegate {
     let WEATHER_URL = "http://api.openweathermap.org/data/2.5/weather"
     let APP_ID = "fe22b230a925754c43d8f74638aff6c3"
     var CFSign = "°C"
-    var CorF = false
+
     
     
     var background:UIImageView!
@@ -33,11 +33,15 @@ class ViewController: UIViewController,  CLLocationManagerDelegate {
     let locationManager = CLLocationManager()
     let weatherDataModel = WeatherModel()
     
+    
 
-//    override func viewWillAppear(_ animated: Bool) {
-//        let params : [String:String] = ["q":UserInput.sharedInstance, "appid":APP_ID]
-//        getWeatherData(url: WEATHER_URL, parameters: params)
-//    }
+    override func viewWillAppear(_ animated: Bool) {
+        print("will appear")
+        if(UserInput.sharedInstance != ""){
+            let params : [String:String] = ["q":UserInput.sharedInstance, "appid":APP_ID]
+            getWeatherData(url: WEATHER_URL, parameters: params)
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -90,8 +94,12 @@ class ViewController: UIViewController,  CLLocationManagerDelegate {
     /***************************************************************/
     func updateUIWithWeatherData()
     {
+        if(CFSign == "°C"){
+            tempLabel.text = "\(weatherDataModel.CTemp)\(CFSign)"
+        }else{
+            tempLabel.text = "\(weatherDataModel.FTemp)\(CFSign)"
+        }
         cityLabel.text = weatherDataModel.city
-        tempLabel.text = "\(weatherDataModel.temperature)\(CFSign)"
         weatherIcon.image = UIImage(named: weatherDataModel.weatherIconName)
         
     }
@@ -105,11 +113,9 @@ class ViewController: UIViewController,  CLLocationManagerDelegate {
         if let tempResult = json["main"]["temp"].double
         {
             
-            weatherDataModel.temperature = Int(tempResult - 273.15)
-            if CorF
-            {
-                weatherDataModel.temperature = Int(Double(weatherDataModel.temperature)*1.8+32)
-            }
+            weatherDataModel.CTemp = Int(tempResult - 273.15)
+            weatherDataModel.FTemp = Int(Double(Int(tempResult - 273.15))*1.8+32)
+            
             
             weatherDataModel.city = json["name"].stringValue
             
@@ -122,7 +128,7 @@ class ViewController: UIViewController,  CLLocationManagerDelegate {
         }
         else
         {
-            cityLabel.text = "Weather Unavaible"
+            cityLabel.text = "Unknown City"
         }
     }
     
@@ -216,15 +222,14 @@ class ViewController: UIViewController,  CLLocationManagerDelegate {
     @objc private func switchPressed(_ sender:UISwitch){
         if sender.isOn
         {
-            CorF = false
-            CFSign = "°C"
+            CFSign = "°F"
+            tempLabel.text = "\(weatherDataModel.FTemp)\(CFSign)"
         }
         else
         {
-            CorF = true
-            CFSign = "°F"
+            CFSign = "°C"
+            tempLabel.text = "\(weatherDataModel.CTemp)\(CFSign)"
         }
-        locationManager.startUpdatingLocation()
     }
     
     private func createDisplayView(){
@@ -234,7 +239,7 @@ class ViewController: UIViewController,  CLLocationManagerDelegate {
         self.view.addSubview(contentView)
         
         tempLabel = UILabel()
-        tempLabel.text = "21°C"
+        tempLabel.text = ""
         //tempLabel.backgroundColor = UIColor.gray
         tempLabel.textAlignment = NSTextAlignment.right
         tempLabel.font = UIFont(name: "HelveticaNeue-Thin", size: 100)
@@ -249,7 +254,7 @@ class ViewController: UIViewController,  CLLocationManagerDelegate {
         contentView.addSubview(weatherIcon)
         
         cityLabel = UILabel()
-        cityLabel.text = "unknown city"
+        cityLabel.text = "Loading"
         cityLabel.textColor = UIColor.white
         //cityLabel.backgroundColor = UIColor.purple
         cityLabel.font = UIFont(name: "HelveticaNeue-Medium", size: 30)
