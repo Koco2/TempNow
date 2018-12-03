@@ -203,7 +203,7 @@ class ViewController: UIViewController,  CLLocationManagerDelegate {
     
     private func addButtons(){
         controllerSwitch = UIButton()
-        controllerSwitch.setBackgroundImage(UIImage(named: "switch"), for: .normal)
+        controllerSwitch.setBackgroundImage(UIImage(named: "014-switch-vertical-orientation-arrows"), for: .normal)
         controllerSwitch.addTarget(self, action: #selector(controllerSwitchPressed), for: .touchUpInside)
         self.view.addSubview(controllerSwitch)
         

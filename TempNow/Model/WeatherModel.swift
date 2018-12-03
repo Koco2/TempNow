@@ -17,44 +17,55 @@ class WeatherModel {
     var city : String = ""
     var weatherIconName : String = ""
     
+    //A3D4F7     cloud
+    //60A2D7     rain
+    
     //This method turns a condition code into the name of the weather condition image
     
     func updateWeatherIcon(condition: Int) -> String {
         
         switch (condition) {
             
-        case 0...300 :
-            return "storm1"
+        case 0...232:
+            return "008-storm-1"
+        
+        case 300...499:
+            return "013-rainy"
             
-        case 301...600 :
-            return "rainy"
+        case 500...504:
+            return "005-cloudy-2"
             
-        case 601...700 :
-            return "snowy"
+        case 505...531:
+            return "013-rainy"
             
-        case 701...771 :
-            return "fog"
+        case 600...610 :
+            return "007-snowy"
             
-        case 772...799 :
-            return "storm2"
+        case 611...612:
+            return "011-snowy-1"
+            
+        case 613...620 :
+            return "007-snowy"
+            
+        case 701...781:
+            return "009-windy"
+        
             
         case 800 :
-            return "sunny"
+            return "001-sun"
             
-        case 801...804 :
-            return "cloudy1"
+        case 801:
+            return "002-cloudy"
             
-        case 900...903, 905...1000  :
-            return "stom2"
+        case 802:
+            return "003-cloud"
             
-        case 903 :
-            return "snowy"
+        case 803...804:
+            return "004-cloudy-1"
             
-        case 904 :
-            return "sunny"
             
         default :
-            return "dunno"
+            return "001-sun"
         }
         
     }
